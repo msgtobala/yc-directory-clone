@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import 'tailwindcss';
+import type { Config } from 'tailwindcss';
 
-@plugin "tailwindcss-animate";
-@plugin "@tailwindcss/typography";
-
-/* @config {
+const config: Config = {
+  darkMode: 'class',
   theme: {
     extend: {
       screens: {
@@ -12,18 +9,18 @@
       },
       colors: {
         primary: {
-          100: '#FFE8F0';
+          '100': '#FFE8F0',
           DEFAULT: '#EE2B69',
         },
         secondary: '#FBE843',
         black: {
-          100: '#333333',
-          200: '#141413',
-          300: '#7D8087',
+          '100': '#333333',
+          '200': '#141413',
+          '300': '#7D8087',
           DEFAULT: '#000000',
         },
         white: {
-          100: '#F7F7F7',
+          '100': '#F7F7F7',
           DEFAULT: '#FFFFFF',
         },
       },
@@ -40,6 +37,8 @@
         200: '2px 2px 0px 2px rgb(0, 0, 0)',
         300: '2px 2px 0px 2px rgb(238, 43, 105)',
       },
-    }
-  }
-} */
+    },
+  },
+};
+
+export default config;
