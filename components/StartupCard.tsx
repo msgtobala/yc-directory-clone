@@ -11,7 +11,7 @@ export type StartupCardType = Omit<Startup, 'author'> & { author?: Author };
 
 const StartupCard = (props: { post: StartupCardType }) => {
   const { post } = props;
-  
+
   const {
     _createdAt,
     _id,
