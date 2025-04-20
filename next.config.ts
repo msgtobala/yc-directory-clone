@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    ppr: true,
+  },
+  devIndicators: {
+    position: 'bottom-left',
+  },
 };
 
 export default nextConfig;
