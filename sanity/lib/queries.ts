@@ -26,7 +26,9 @@ export const START_BY_ID_QUERY =
   author -> {
    _id,
     name,
-    bio
+    bio,
+    image,
+    username,
   },
     views,
     description,
@@ -34,3 +36,10 @@ export const START_BY_ID_QUERY =
     image,
     pitch
 }`);
+
+export const STARTUP_VIEWS_QUERY = defineQuery(
+  `*[_type == "startup" && _id == $id][0]{
+    _id,
+    views,
+  }`
+);

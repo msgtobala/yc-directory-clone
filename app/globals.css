@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import 'tailwindcss' important;
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -101,17 +101,12 @@
   }
 
   .tag {
-    /* @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri; */
-    @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative;
+    @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
   }
 
   .heading {
     @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
   }
-
-  /* .sub-heading {
-    @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
-  } */
 
   .section_container {
     @apply px-6 py-10 max-w-7xl mx-auto;
@@ -246,9 +241,5 @@
 
   .category-tag {
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
-  }
-
-  .tag-tri {
-    @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
   }
 }
