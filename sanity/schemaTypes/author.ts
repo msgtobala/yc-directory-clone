@@ -38,3 +38,9 @@ export const author = defineType({
     },
   },
 });
+
+// AUTH_SECRET="ANQO9svTh9OUFoDEq/K5Plwqf8F8M8pGmwjaRQj6z4o="
+// AUTH_GITHUB_ID="Ov23lilvS7PaRpF8CLMg"
+// AUTH_GITHUB_SECRET="a3d2a9a6ead3aa200805992827e420d7942a1fa7"
+// NEXT_PUBLIC_SANITY_PROJECT_ID="1o9g2szr"
+// NEXT_PUBLIC_SANITY_DATASET="production"
