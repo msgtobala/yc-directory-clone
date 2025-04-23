@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    ppr: true,
+    ppr: "incremental",
   },
   devIndicators: {
     position: 'bottom-left',
