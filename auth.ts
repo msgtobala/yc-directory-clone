@@ -6,26 +6,49 @@ import { writeClient } from '@/sanity/lib/write-client';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [GitHub],
+  session: {
+    strategy: 'jwt',
+  },
   callbacks: {
-    async signIn({ user, profile }) {
-      const { name, email, image } = user;
-      const existingUser = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
-        id: profile?.id,
-      });
+    async signIn({ user: { name, email, image }, profile }) {
+      const existingUser = await client
+        .withConfig({ useCdn: false })
+        .fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
+          id: profile?.id?.toString(),
+        });
 
       if (!existingUser) {
         await writeClient.create({
           _type: 'author',
-          id: profile?.id,
+          id: profile?.id?.toString(),
           name,
           username: profile?.login,
           email,
           image,
-          bio: profile?.bio,
+          bio: profile?.bio || '',
         });
       }
 
       return true;
+    },
+    async jwt({ token, profile, account }) {
+      if (profile && account) {
+        const user = await client
+          .withConfig({ useCdn: false })
+          .fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
+            id: profile?.id?.toString(),
+          });
+        token.id = user?._id;
+      }
+
+      return token;
+    },
+    async session({ session, token }) {
+      Object.assign(session, {
+        id: token.id,
+      });
+
+      return session;
     },
   },
 });

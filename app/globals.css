@@ -55,11 +55,11 @@
   background-repeat: repeat-x;
 }
 
-@utility w-md-editor-toolbar {
-  padding: 10px !important;
-}
-
 @layer utilities {
+  .w-md-editor-toolbar {
+    padding: 10px !important;
+  }
+
   .flex-between {
     @apply flex justify-between items-center;
   }
